@@ -6,7 +6,7 @@ public class SimulationHandler : MonoBehaviour
 {
     // Variables
     private int frames;
-    private float deelay = 5f;
+    private float deelay = 3f;
     private float countdown;
     
     private static Cube cube;
@@ -51,7 +51,7 @@ public class SimulationHandler : MonoBehaviour
     {
         ProcessUserInput();
         spawner.SpawnCubes(cube);
-        // 5 sec after the building has been built up an explosion will occur
+        // x sec after the building has been built up an explosion will occur
         countdown = deelay;
         
     }

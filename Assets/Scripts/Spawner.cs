@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
     int maxDeep = 10;
     public List<GameObject> clones = new List<GameObject>();
 
-     public void SetMaxDeep(int value)
+    public void SetMaxDeep(int value)
    {
        maxDeep = value;
    }
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
    }
    void Awake()
     {
-        numberOfCubes = numberOfCubes;
+        numberOfCubes = numberOfCubes; // TODO: Check if this line is really necessary?
         
     }
  
@@ -60,9 +60,13 @@ public class Spawner : MonoBehaviour
                     }
                     totalCubeCounter++;
                     GameObject clone = Instantiate(cube.prefab, new Vector3(i,heightCounter,j), Quaternion.identity);
-                    clone.GetComponent<Renderer>().material.color = new Color(Random.Range(0f, 1f),Random.Range(0f, 1f),Random.Range(0f, 1f));
+                    // Set random material on the clone
+                    clone.GetComponent<Renderer>().material = cube.cubeMaterials[(int)UnityEngine.Random.Range(0, 10)];
+                    // Set mesh on the clone
+                    clone.GetComponent<MeshFilter>().mesh = cube.cubeMesh;
+                    // Set the name on the clone
                     clone.name = "Cube_" + totalCubeCounter; 
-                    // Add the clone to the list of clones
+                    // Add the clone to the list of clones (This list is used for changing the colors of the cubes later on)
                     clones.Add(clone);   
                 }
             

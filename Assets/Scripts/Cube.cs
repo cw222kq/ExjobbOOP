@@ -8,6 +8,8 @@ public class Cube : MonoBehaviour
     private float r;
     private float g;
     private float b;
+    public List<Material> cubeMaterials = new List<Material>();
+    public Mesh cubeMesh;
     
     public void ChangeColors(List<GameObject> cubes) 
     {
