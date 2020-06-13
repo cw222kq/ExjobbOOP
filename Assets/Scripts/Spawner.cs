@@ -42,18 +42,17 @@ public class Spawner : MonoBehaviour
    {   
        return numberOfCubes;
    }
-   void Awake()
+   /*void Awake()
     {
         numberOfCubes = numberOfCubes; // TODO: Check if this line is really necessary?
         
-    }
- 
+    }*/
     public void SpawnCubes(Cube cube) 
     {
         while(totalCubeCounter<numberOfCubes) {
             // Every level in the cube will consist of max 100 cubes
-            for(int i=0; i<maxWidth; i++) {//x width always the same
-                for(int j=0; j<maxDeep; j++) {//z deep always the same
+            for(int i=0; i<maxWidth; i++) {//x width
+                for(int j=0; j<maxDeep; j++) {//z deep
                 
                     if(totalCubeCounter == numberOfCubes){
                             return;

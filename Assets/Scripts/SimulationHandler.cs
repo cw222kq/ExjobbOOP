@@ -6,9 +6,7 @@ public class SimulationHandler : MonoBehaviour
 {
     // Variables
     private int frames;
-    private float deelay = 3f;
     private float countdown;
-    
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
@@ -32,27 +30,16 @@ public class SimulationHandler : MonoBehaviour
             spawner.numberOfCubes = (spawner.width*spawner.deep)*spawner.height;
         
         }
-        // Sets the radius on the explosion
-        if(spawner.GetMaxWidth() > spawner.GetMaxDeep()) 
-        {
-            explosion.SetRadius(spawner.GetMaxWidth()/2);
-        }
-        else if(spawner.GetMaxDeep() > spawner.GetMaxWidth())
-        {
-            explosion.SetRadius(spawner.GetMaxDeep()/2);
-        }
-        else {
-            explosion.SetRadius(spawner.GetMaxDeep()/2);
-        } 
-        
+            
     }   
     // Start is called before the first frame update
     void Start()
     {
         ProcessUserInput();
-        spawner.SpawnCubes(cube);
+        // UNCOMMENT THIS LINE BELOW!!!!!!!
+        spawner.SpawnCubes(cube); // Look into the DOD/DOTS version as this function is in the update method here. Makes OOP and DOD/DOTS call this method in the same function
         // x sec after the building has been built up an explosion will occur
-        countdown = deelay;
+        countdown = explosion.delay;
         
     }
 
@@ -60,17 +47,18 @@ public class SimulationHandler : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
-        if (countdown <= 0f && !explosion.hasExploded) 
+        if (countdown <= 0f && !explosion.hasExplode) 
         {
             explosion.Explode(spawner);
         }
         // Change color of the cubes every every frame before the explosion
-        if (!explosion.hasExploded) 
-        {
+        if (!explosion.hasExplode) 
+        {   
+            // UNCOMMENT THIS LINE BELOW!!!!
             cube.ChangeColors(spawner.clones);
         }
 
-        if(!explosion.hasExploded)
+        if(!explosion.hasExplode)
         {
             frames ++;
         }
