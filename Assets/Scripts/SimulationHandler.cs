@@ -10,14 +10,7 @@ public class SimulationHandler : MonoBehaviour
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
-
-    void Awake() // https://www.youtube.com/watch?v=fGshe3ILKnA
-    {
-        cube = GetComponent<Cube>();
-        spawner = GetComponent<Spawner>();
-        explosion = GetComponent<Explosion>();
-
-    }
+    
     // Checks the user input from the GUI. If width, deep and height is set to values those values will be used to set the numberOfCubes
     // If width, deep and height are set to zero the building of cubes will consist of the value set in the numberOfCubes field
     // Every complete level will consist of 100 cubes
@@ -31,7 +24,16 @@ public class SimulationHandler : MonoBehaviour
         
         }
             
-    }   
+    }  
+
+    void Awake() // https://www.youtube.com/watch?v=fGshe3ILKnA
+    {
+        cube = GetComponent<Cube>();
+        spawner = GetComponent<Spawner>();
+        explosion = GetComponent<Explosion>();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

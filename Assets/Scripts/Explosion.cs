@@ -7,7 +7,7 @@ public class Explosion : MonoBehaviour
     public GameObject spherePrefab;
     private GameObject sphereObj;
     public float delay = 3f; 
-    public bool hasExplosionObject;
+    private bool hasExplosionObject;
     private float spherePrefabYvalue;
    public void Explode (Spawner spawner)
     {
@@ -25,6 +25,7 @@ public class Explosion : MonoBehaviour
             hasExplosionObject = true;
 
         }
+        
         // If sphere exist make it grow
         if(hasExplosionObject)
         {
@@ -32,6 +33,8 @@ public class Explosion : MonoBehaviour
             sphereObj.transform.position = new Vector3(((float)spawner.GetMaxWidth()-1)/2, spherePrefabYvalue, ((float)spawner.GetMaxDeep()-1)/2);
             float increaseValue = 0.15f;
             Vector3 increase = new Vector3(increaseValue, increaseValue, increaseValue);
+            // The increase of the transform.localScale will increase the SphereCollider radius automatically to fit the transform.localScale
+            // By setting the radius of the SphereColldier to 1 in the inspector the collider will always be twice as big as the rendered sphere
             sphereObj.transform.localScale = sphereObj.transform.localScale + increase;
             spherePrefabYvalue += increaseValue;
 

@@ -23,16 +23,15 @@ public class Spawner : MonoBehaviour
    {
        maxDeep = value;
    }
-
    public int GetMaxDeep() 
    {
        return maxDeep;
    }
+
    public void SetMaxWidth(int value)
    {
        maxWidth = value;
    }
-
    public int GetMaxWidth() 
    {
        return maxWidth;
