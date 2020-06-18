@@ -11,6 +11,7 @@ public class Cube : MonoBehaviour
     public List<Material> cubeMaterials = new List<Material>();
     public Mesh cubeMesh;
     
+     // Randomize rgb values and set it to the cubes material
     public void ChangeColors(List<GameObject> cubes) 
     {
         foreach (GameObject cube in cubes) {

@@ -13,10 +13,10 @@ public class Spawner : MonoBehaviour
     public int width;
     public int deep;
     public int height;
-    int heightCounter = 0;
-    int totalCubeCounter = 0;
-    int maxWidth = 10;
-    int maxDeep = 10;
+    private int heightCounter = 0;
+    private int totalCubeCounter = 0;
+    private int maxWidth = 10;
+    private int maxDeep = 10;
     public List<GameObject> clones = new List<GameObject>();
 
     public void SetMaxDeep(int value)
@@ -48,28 +48,37 @@ public class Spawner : MonoBehaviour
     }*/
     public void SpawnCubes(Cube cube) 
     {
+        // As long as the number of spawned cubes in the scene is smaller than numberOfCubes the spawner will keep on spawning cubes
         while(totalCubeCounter<numberOfCubes) {
-            // Every level in the cube will consist of max 100 cubes
-            for(int i=0; i<maxWidth; i++) {//x width
-                for(int j=0; j<maxDeep; j++) {//z deep
+
+            for(int i=0; i<maxWidth; i++) { // x width default value is 10
+                for(int j=0; j<maxDeep; j++) { // z deep default value is 10
                 
+                    // This will end the while loop
                     if(totalCubeCounter == numberOfCubes){
                             return;
                     }
+
                     totalCubeCounter++;
+
+                    // Instantiate GameObject
                     GameObject clone = Instantiate(cube.prefab, new Vector3(i,heightCounter,j), Quaternion.identity);
+
                     // Set random material on the clone
                     clone.GetComponent<Renderer>().material = cube.cubeMaterials[(int)UnityEngine.Random.Range(0, 10)];
+
                     // Set mesh on the clone
                     clone.GetComponent<MeshFilter>().mesh = cube.cubeMesh;
+
                     // Set the name on the clone
-                    clone.name = "Cube_" + totalCubeCounter; 
+                    // clone.name = "Cube_" + totalCubeCounter; DELETE TO MAKE IT MORE LIKE THE DOD VERSION
+
                     // Add the clone to the list of clones (This list is used for changing the colors of the cubes later on)
                     clones.Add(clone);   
                 }
             
             }
-            // When 100 cubes has been built start the building on the next level
+            // When the first level of cubes (maxWidth*maxDeep) has been built start the building on the next level (i.e adding +1 to the height (y value))
             heightCounter++;
 
         } 

@@ -58,11 +58,12 @@ public class SimulationHandler : MonoBehaviour
         
     }
 
-    // Checks the user input from the GUI. If width, deep and height is set to values those values will be used to set the numberOfCubes
-    // If width, deep and height are set to zero the building of cubes will consist of the value set in the numberOfCubes field
-    // Every complete level will consist of 100 cubes
+    // Checks the user input from the inspector. If width, deep and height is set to values those values will be used to set the numberOfCubes
+    // If width, deep or height are set to zero the building of cubes will consist of the value set in the numberOfCubes field
+    // Every complete level will consist of 100 cubes (default value)
     void ProcessUserInput() 
     {
+        // If the user inputs width, deep or hight recalculate the maxWidth, maxDeep and the numberOfCubes
         if (spawner.width > 0 && spawner.deep > 0 && spawner.height > 0) 
         {
             spawner.SetMaxWidth(spawner.width);
