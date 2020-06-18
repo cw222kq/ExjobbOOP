@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject cubePrefab;
     private float r;
     private float g;
     private float b;

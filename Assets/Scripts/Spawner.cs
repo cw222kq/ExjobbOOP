@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
                     totalCubeCounter++;
 
                     // Instantiate GameObject
-                    GameObject clone = Instantiate(cube.prefab, new Vector3(i,heightCounter,j), Quaternion.identity);
+                    GameObject clone = Instantiate(cube.cubePrefab, new Vector3(i,heightCounter,j), Quaternion.identity);
 
                     // Set random material on the clone
                     clone.GetComponent<Renderer>().material = cube.cubeMaterials[(int)UnityEngine.Random.Range(0, 10)];

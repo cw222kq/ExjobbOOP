@@ -259,7 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb33fda1b01d8bc3a8dd3fc3d728c057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2623295406374657864, guid: 40018cc2db0ee2d5587b59582adc1aa3, type: 3}
+  cubePrefab: {fileID: 2623295406374657864, guid: 40018cc2db0ee2d5587b59582adc1aa3,
+    type: 3}
   cubeMaterials:
   - {fileID: 2100000, guid: 3e40eebf13118352f80d9c6ef5a46604, type: 2}
   - {fileID: 2100000, guid: 5c982cd0764fe9c7ebf18efd0fde7b2c, type: 2}
@@ -288,7 +289,6 @@ MonoBehaviour:
   spherePrefab: {fileID: 8590660036969862957, guid: 26c5cae9d9228a7eb906bc4bd2ab8a29,
     type: 3}
   delay: 3
-  hasExplosionObject: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
