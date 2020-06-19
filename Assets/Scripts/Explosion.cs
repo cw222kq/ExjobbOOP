@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public bool hasExplode = false;
     public GameObject spherePrefab;
     private GameObject sphereObj;
     public float delay = 3f; 
     private bool hasExplosionObject;
     private float spherePrefabYvalue;
+    public bool hasExplode = false;
 
    public void Explode (Spawner spawner)
     {

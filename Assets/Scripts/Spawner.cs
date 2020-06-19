@@ -17,9 +17,9 @@ public class Spawner : MonoBehaviour
     private int totalCubeCounter = 0;
     private int maxWidth = 10;
     private int maxDeep = 10;
-    public List<GameObject> clones = new List<GameObject>();
+    public List<GameObject> cubes = new List<GameObject>();
 
-    public void SetMaxDeep(int value)
+    public void SetMaxDeep(int value) // TODO: Delete getters and setters? 
    {
        maxDeep = value;
    }
@@ -41,11 +41,7 @@ public class Spawner : MonoBehaviour
    {   
        return numberOfCubes;
    }
-   /*void Awake()
-    {
-        numberOfCubes = numberOfCubes; // TODO: Check if this line is really necessary?
-        
-    }*/
+   
     public void SpawnCubes(Cube cube) 
     {
         // As long as the number of spawned cubes in the scene is smaller than numberOfCubes the spawner will keep on spawning cubes
@@ -62,19 +58,16 @@ public class Spawner : MonoBehaviour
                     totalCubeCounter++;
 
                     // Instantiate GameObject
-                    GameObject clone = Instantiate(cube.cubePrefab, new Vector3(i,heightCounter,j), Quaternion.identity);
+                    GameObject theInstance = Instantiate(cube.cubePrefab, new Vector3(i,heightCounter,j), Quaternion.identity);
 
-                    // Set random material on the clone
-                    clone.GetComponent<Renderer>().material = cube.cubeMaterials[(int)UnityEngine.Random.Range(0, 10)];
+                    // Set random material on the instance
+                    theInstance.GetComponent<Renderer>().material = cube.cubeMaterials[(int)UnityEngine.Random.Range(0, 10)];
 
-                    // Set mesh on the clone
-                    clone.GetComponent<MeshFilter>().mesh = cube.cubeMesh;
+                    // Set mesh on the instance
+                    theInstance.GetComponent<MeshFilter>().mesh = cube.cubeMesh;
 
-                    // Set the name on the clone
-                    // clone.name = "Cube_" + totalCubeCounter; DELETE TO MAKE IT MORE LIKE THE DOD VERSION
-
-                    // Add the clone to the list of clones (This list is used for changing the colors of the cubes later on)
-                    clones.Add(clone);   
+                    // Add the instance to the list of cubes (This list is used for changing the colors of the cubes later on)
+                    cubes.Add(theInstance);
                 }
             
             }

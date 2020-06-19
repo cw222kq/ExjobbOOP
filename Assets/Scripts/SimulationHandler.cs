@@ -7,7 +7,7 @@ public class SimulationHandler : MonoBehaviour
     // Variables
     private int frames;
     private float countdown;
-    private bool spawnedCubes;
+    private bool spawnedCubes; // TODO: Move this to Cube class instead
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
@@ -39,7 +39,9 @@ public class SimulationHandler : MonoBehaviour
             spawner.SpawnCubes(cube);
             spawnedCubes = true;
         }
+
         countdown -= Time.deltaTime;
+
         if (countdown <= 0f && !explosion.hasExplode) 
         {
             explosion.Explode(spawner);
@@ -48,7 +50,7 @@ public class SimulationHandler : MonoBehaviour
         if (!explosion.hasExplode) 
         {   
             // UNCOMMENT THIS LINE BELOW!!!!
-            cube.ChangeColors(spawner.clones);
+            cube.ChangeColors(spawner.cubes);
         }
 
         if(!explosion.hasExplode)
