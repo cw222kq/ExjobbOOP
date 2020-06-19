@@ -7,7 +7,6 @@ public class SimulationHandler : MonoBehaviour
     // Variables
     private int frames;
     private float countdown;
-    private bool spawnedCubes; // TODO: Move this to Cube class instead
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
@@ -33,11 +32,10 @@ public class SimulationHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!spawnedCubes)
+        if (!spawner.spawnedCubes)
         {
             // UNCOMMENT THIS LINE BELOW!!!!!!!
             spawner.SpawnCubes(cube);
-            spawnedCubes = true;
         }
 
         countdown -= Time.deltaTime;

@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     private int totalCubeCounter = 0;
     private int maxWidth = 10;
     private int maxDeep = 10;
+    public bool spawnedCubes;
     public List<GameObject> cubes = new List<GameObject>();
 
     public void SetMaxDeep(int value) // TODO: Delete getters and setters? 
@@ -75,6 +76,8 @@ public class Spawner : MonoBehaviour
             heightCounter++;
 
         } 
-        
+
+        //Set spawedCubes to true so the SpawnCube method only gets executed once
+        spawnedCubes = true; 
     }
 }
