@@ -15,34 +15,11 @@ public class Spawner : MonoBehaviour
     public int height;
     private int heightCounter = 0;
     private int totalCubeCounter = 0;
-    private int maxWidth = 10;
-    private int maxDeep = 10;
+    public int maxWidth = 10;
+    public int maxDeep = 10;
     public bool spawnedCubes;
     public List<GameObject> cubes = new List<GameObject>();
-
-    public void SetMaxDeep(int value) // TODO: Delete getters and setters? 
-   {
-       maxDeep = value;
-   }
-   public int GetMaxDeep() 
-   {
-       return maxDeep;
-   }
-
-   public void SetMaxWidth(int value)
-   {
-       maxWidth = value;
-   }
-   public int GetMaxWidth() 
-   {
-       return maxWidth;
-   }
-
-   public int GetNumberOfCubes() 
-   {   
-       return numberOfCubes;
-   }
-   
+ 
     public void SpawnCubes(Cube cube) 
     {
         // As long as the number of spawned cubes in the scene is smaller than numberOfCubes the spawner will keep on spawning cubes

@@ -66,8 +66,8 @@ public class SimulationHandler : MonoBehaviour
         // If the user inputs width, deep or hight recalculate the maxWidth, maxDeep and the numberOfCubes
         if (spawner.width > 0 && spawner.deep > 0 && spawner.height > 0) 
         {
-            spawner.SetMaxWidth(spawner.width);
-            spawner.SetMaxDeep(spawner.deep);
+            spawner.maxWidth = spawner.width;
+            spawner.maxDeep = spawner.deep;
             spawner.numberOfCubes = (spawner.width*spawner.deep)*spawner.height;
         
         }
