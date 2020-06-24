@@ -56,7 +56,7 @@ public class SimulationHandler : MonoBehaviour
         }
 
         // 45 seconds after start end the simulation
-        if (endSimulationTimer <= 0f && explosion.HasExplode) // Delete explosion.HasExlode
+        if (endSimulationTimer <= 0f) 
         {
             Application.Quit();
         }
