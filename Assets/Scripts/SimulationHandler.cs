@@ -37,7 +37,6 @@ public class SimulationHandler : MonoBehaviour
     {
         if (!spawner.SpawnedCubes)
         {
-            // UNCOMMENT THIS LINE BELOW!!!!!!!
             spawner.SpawnCubes(cube);
         }
 
@@ -51,7 +50,6 @@ public class SimulationHandler : MonoBehaviour
         // Change color of the cubes every every frame before the explosion
         if (!explosion.HasExplode) 
         {   
-            // UNCOMMENT THIS LINE BELOW!!!!
             cube.ChangeColors(spawner.Cubes);
         }
 
