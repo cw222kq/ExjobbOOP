@@ -5,8 +5,8 @@ using UnityEngine;
 public class SimulationHandler : MonoBehaviour
 {
     // Variables
-    private int frames;
     private float countdown;
+    private float endSimulationTimer;
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
@@ -26,6 +26,9 @@ public class SimulationHandler : MonoBehaviour
 
         // x sec after the building has been built up an explosion will occur
         countdown = explosion.Delay;
+
+        // End simulation after 45 seconds
+        endSimulationTimer = 45f;
         
     }
 
@@ -39,6 +42,7 @@ public class SimulationHandler : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
+        endSimulationTimer -= Time.deltaTime;
 
         if (countdown <= 0f && !explosion.HasExplode) 
         {
@@ -51,11 +55,13 @@ public class SimulationHandler : MonoBehaviour
             cube.ChangeColors(spawner.Cubes);
         }
 
-        if(!explosion.HasExplode)
+        // 45 seconds after start end the simulation
+        if (endSimulationTimer <= 0f && explosion.HasExplode)
         {
-            frames ++;
+            Debug.Log("QUIT!!!!!!");
+            Application.Quit();
         }
-        
+      
     }
 
     // Checks the user input from the inspector. If width, deep and height is set to values those values will be used to set the numberOfCubes
