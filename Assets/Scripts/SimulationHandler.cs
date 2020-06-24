@@ -23,16 +23,16 @@ public class SimulationHandler : MonoBehaviour
     void Start()
     {
         ProcessUserInput();
-        
+
         // x sec after the building has been built up an explosion will occur
-        countdown = explosion.delay;
+        countdown = explosion.Delay;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!spawner.spawnedCubes)
+        if (!spawner.SpawnedCubes)
         {
             // UNCOMMENT THIS LINE BELOW!!!!!!!
             spawner.SpawnCubes(cube);
@@ -40,18 +40,18 @@ public class SimulationHandler : MonoBehaviour
 
         countdown -= Time.deltaTime;
 
-        if (countdown <= 0f && !explosion.hasExplode) 
+        if (countdown <= 0f && !explosion.HasExplode) 
         {
             explosion.Explode(spawner);
         }
         // Change color of the cubes every every frame before the explosion
-        if (!explosion.hasExplode) 
+        if (!explosion.HasExplode) 
         {   
             // UNCOMMENT THIS LINE BELOW!!!!
-            cube.ChangeColors(spawner.cubes);
+            cube.ChangeColors(spawner.Cubes);
         }
 
-        if(!explosion.hasExplode)
+        if(!explosion.HasExplode)
         {
             frames ++;
         }
@@ -64,11 +64,11 @@ public class SimulationHandler : MonoBehaviour
     void ProcessUserInput() 
     {
         // If the user inputs width, deep or hight recalculate the maxWidth, maxDeep and the numberOfCubes
-        if (spawner.width > 0 && spawner.deep > 0 && spawner.height > 0) 
+        if (spawner.Width > 0 && spawner.Deep > 0 && spawner.Height > 0) 
         {
-            spawner.maxWidth = spawner.width;
-            spawner.maxDeep = spawner.deep;
-            spawner.numberOfCubes = (spawner.width*spawner.deep)*spawner.height;
+            spawner.MaxWidth = spawner.Width;
+            spawner.MaxDeep = spawner.Deep;
+            spawner.NumberOfCubes = (spawner.Width*spawner.Deep)*spawner.Height;
         
         }
             

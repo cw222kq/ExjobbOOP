@@ -242,11 +242,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c38dcdae8eec87c08a59b5c94c9a135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfCubes: 3000
+  numberOfCubes: 0
   width: 10
   deep: 10
   height: 10
-  clones: []
+  maxWidth: 10
+  maxDeep: 10
+  spawnedCubes: 0
+  cubes: []
 --- !u!114 &391183424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,10 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c416f1124c7cef6dc8138350fad9cd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasExplode: 0
   spherePrefab: {fileID: 8590660036969862957, guid: 26c5cae9d9228a7eb906bc4bd2ab8a29,
     type: 3}
-  delay: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

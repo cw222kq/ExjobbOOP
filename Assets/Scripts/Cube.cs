@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public GameObject cubePrefab;
+    [SerializeField] private GameObject cubePrefab;
     private float r;
     private float g;
     private float b;
-    public List<Material> cubeMaterials = new List<Material>();
-    public Mesh cubeMesh;
-    
-     // Randomize rgb values and set it to the cubes material
+    [SerializeField] private List<Material> cubeMaterials = new List<Material>();
+    [SerializeField] private Mesh cubeMesh;
+
+    public GameObject CubePrefab { get => cubePrefab; set => cubePrefab = value; }
+    public List<Material> CubeMaterials { get => cubeMaterials; set => cubeMaterials = value; }
+    public Mesh CubeMesh { get => cubeMesh; set => cubeMesh = value; }
+
+    // Randomize rgb values and set it to the cubes material
     public void ChangeColors(List<GameObject> cubes) 
     {
         foreach (GameObject cube in cubes) {
