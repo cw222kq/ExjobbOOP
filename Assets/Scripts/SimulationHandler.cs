@@ -27,8 +27,8 @@ public class SimulationHandler : MonoBehaviour
         // x sec after the building has been built up an explosion will occur
         countdown = explosion.Delay;
 
-        // End simulation after 30 seconds
-        endSimulationTimer = 30f;
+        // End simulation after 25 seconds
+        endSimulationTimer = 25f;
         
     }
 
