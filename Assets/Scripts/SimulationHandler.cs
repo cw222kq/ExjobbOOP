@@ -6,7 +6,7 @@ public class SimulationHandler : MonoBehaviour
 {
     // Variables
     private float countdown;
-    private float endSimulationTimer;
+    private int framesCounter;
     private static Cube cube;
     private static Spawner spawner;
     private static Explosion explosion;
@@ -27,8 +27,8 @@ public class SimulationHandler : MonoBehaviour
         // x sec after the building has been built up an explosion will occur
         countdown = explosion.Delay;
 
-        // End simulation after 40 seconds
-        endSimulationTimer = 40f;
+        // Initialize framesCounter
+        framesCounter = 0;
         
     }
 
@@ -41,7 +41,7 @@ public class SimulationHandler : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
-        endSimulationTimer -= Time.deltaTime;
+        framesCounter ++;
 
         if (countdown <= 0f && !explosion.HasExplode) 
         {
@@ -53,8 +53,8 @@ public class SimulationHandler : MonoBehaviour
             cube.ChangeColors(spawner.Cubes);
         }
 
-        // 45 seconds after start end the simulation
-        if (endSimulationTimer <= 0f) 
+        // When the frames reach 600 end the simulation
+        if (framesCounter == 600) 
         {
             Application.Quit();
         }
