@@ -28,36 +28,38 @@ public class SimulationHandler : MonoBehaviour
         countdown = explosion.Delay;
 
         // Initialize framesCounter
-        framesCounter = 0;
+        framesCounter = 1;
         
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (!spawner.SpawnedCubes)
-        {
-            spawner.SpawnCubes(cube);
-        }
-
-        countdown -= Time.deltaTime;
+    {  
         framesCounter ++;
-
-        if (countdown <= 0f && !explosion.HasExplode) 
-        {
-            explosion.Explode(spawner);
-        }
-        // Change color of the cubes every every frame before the explosion
-        if (!explosion.HasExplode) 
-        {   
-            cube.ChangeColors(spawner.Cubes);
-        }
 
         // When the frames reach 600 end the simulation
         if (framesCounter == 600) 
         {
             Application.Quit();
         }
+
+        countdown -= Time.deltaTime;
+
+        if (!spawner.SpawnedCubes)
+        {
+            spawner.SpawnCubes(cube);
+        }
+
+        if (countdown <= 0f && !explosion.HasExplode) 
+        {
+            explosion.Explode(spawner);
+        }
+        
+        // Change color of the cubes every every frame before the explosion
+        if (!explosion.HasExplode) 
+        {   
+            cube.ChangeColors(spawner.Cubes);
+        }  
       
     }
 
