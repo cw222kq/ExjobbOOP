@@ -2,4 +2,4 @@
 A working version of the simulation written with OOP.
 
 
-The DOD-version of the simulation: <a href="https://github.com/cw222kq/DOTSSpawnCube"> simultion written with DOD </a>
+The DOD-version of the simulation: <a href="https://github.com/cw222kq/DOTSSpawnCube"> The same simulation written with DOD </a>
